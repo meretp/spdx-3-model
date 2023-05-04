@@ -384,7 +384,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           
               <li class="second-level" style="line-height: 20px;" id="sd_27"><a  href="class-coreintegritymethod.html">core:IntegrityMethod</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_28"><a class="active" href="class-corelifecyclescopetype.html">core:LifecycleScopeType</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_28"><a  href="class-corelifecyclescopetype.html">core:LifecycleScopeType</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_29"><a  href="class-corelifecyclescopedrelationship.html">core:LifecycleScopedRelationship</a></li>
           
@@ -422,7 +422,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           
               <li class="second-level" style="line-height: 20px;" id="sd_46"><a  href="class-datasetdatasetavailabilitytype.html">dataset:DatasetAvailabilityType</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_47"><a  href="class-software.html">software:</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_47"><a class="active" href="class-software.html">software:</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_48"><a  href="class-softwaredependencyconditionalitytype.html">software:DependencyConditionalityType</a></li>
           
@@ -734,7 +734,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           <a href="entities-tree-classes.html">Classes</a>
     </li>
       <li class="active">
-            core:LifecycleScopeType
+            software:
         </li>
   </ol>
 
@@ -761,7 +761,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
     
     <h1>
-      core:LifecycleScopeType
+      software:
       
         <small class="label label-info label-xs">leaf node</small>
       
@@ -776,7 +776,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           
             <li><a href="entities-tree-classes.html">owl:Thing</a>
               <ul>
-                <li><a style="font-weight: bold;" title="'LifecycleScopeType' - TODO">core:LifecycleScopeType</a>
+                <li><a style="font-weight: bold;" title="''">software:</a>
                   
                 </li>
               </ul>
@@ -795,7 +795,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
             <h3 class="panel-title">URI</h3>
           </div>
           <div class="panel-body">
-            <code>https://spdx.org/rdf/Core/LifecycleScopeType</code>
+            <code>https://spdx.org/rdf/Software/</code>
           </div>
         </div>
       </div>
@@ -804,35 +804,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
     
     
-      <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Label</h3>
-          </div>
-          <div class="panel-body">
-            LifecycleScopeType
-          </div>
-          </div>
-        </div>
-      </div>
-    
 
 
     
-    
-      <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Description</h3>
-            </div>
-            <div class="panel-body">
-              <p>TODO</p>
-            </div>
-          </div>
-        </div>
-      </div>
     
 
 
@@ -857,7 +831,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
               <h3 class="panel-title">Usage</h3>
             </div>
             <div class="panel-body" style="overflow: auto;">
-              <p>Instances of core:LifecycleScopeType can have the following properties:</p>
+              <p>Instances of software: can have the following properties:</p>
             </div>
             <table class="table table-bordered" style="overflow: auto;">
               <tr class="table-classproperties">
@@ -3041,14 +3015,13 @@ any anomalies or discoveries in the determination of the origin of the package.<
           </div>
           <div class="panel-body implementation-panel">
             
-              <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">core:</span><span class="w"> </span><span class="nv">&lt;https://spdx.org/rdf/Core/&gt;</span><span class="w"> </span><span class="p">.</span>
-<span class="k">@prefix</span><span class="w"> </span><span class="nn">ns0:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</span><span class="w"> </span><span class="p">.</span>
-<span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span>
-<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span>
+              <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">software:</span><span class="w"> </span><span class="nv">&lt;https://spdx.org/rdf/Software/&gt;</span><span class="w"> </span><span class="p">.</span>
 
-<span class="nn">core</span><span class="p">:</span><span class="nt">LifecycleScopeType</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">Class</span> <span class="p">;</span>
-    <span class="nn">rdfs</span><span class="p">:</span><span class="nt">comment</span> <span class="s">&quot;TODO&quot;</span> <span class="p">;</span>
-    <span class="nn">ns0</span><span class="p">:</span><span class="nt">term_status</span> <span class="s">&quot;Stable&quot;</span> <span class="p">.</span>
+<span class="nn">software</span><span class="p">:</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">NamedIndividual</span><span class="p">,</span>
+        <span class="nn">software</span><span class="p">:</span><span class="nt">DependencyConditionalityType</span><span class="p">,</span>
+        <span class="nn">software</span><span class="p">:</span><span class="nt">SoftwareDependencyLinkType</span><span class="p">,</span>
+        <span class="nn">software</span><span class="p">:</span><span class="nt">SoftwarePurpose</span> <span class="p">.</span>
 </pre></div>
 
             
@@ -3139,7 +3112,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_28").offset().top - 100
+          scrollTop: $("#sd_47").offset().top - 100
       }, 100);
     });
 
