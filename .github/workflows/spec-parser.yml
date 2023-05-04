@@ -38,7 +38,6 @@ jobs:
               --gen-rdf \
               --out-dir /tmp/spec-parser.out \
               ../model
-          cd ..
 
       - uses: actions/upload-artifact@v3
         with:
@@ -56,7 +55,6 @@ jobs:
           cd Ontospy
           mkdir -p /tmp/generated_docs
           ontospy gendocs -o /tmp/generated_docs --type 2 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
-          cd ..
 
       - uses: actions/upload-artifact@v3
         with:
@@ -65,10 +63,13 @@ jobs:
           
       - name: commit changes to branch 
         run: |
-          git fetch 
-          git checkout gh-pages
-          cp /tmp/spec-parser.out/model.ttl .
-          cp -r /tmp/generated_docs/ .
-          git add model.ttl generated_docs/ 
-          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -s -m "Automated Upload" --author "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
-          git push origin
+          if [ ${{ github.ref_name }} == "main" ]
+          then
+            git fetch 
+            git checkout gh-pages
+            cp /tmp/spec-parser.out/model.ttl .
+            cp -r /tmp/generated_docs/ .
+            git add model.ttl generated_docs/ 
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -s -m "Automated Upload" --author "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
+            git push origin
+          fi
