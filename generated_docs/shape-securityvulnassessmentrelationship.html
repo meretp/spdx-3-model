@@ -1072,11 +1072,7 @@ assessment relationships. It factors out the common properties shared by them.</
 <span class="s">assessment relationships. It factors out the common properties shared by them.&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf core:Relationship ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype core:Element ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;assessedElement&quot; ;</span>
-<span class="s">            sh:path security:assessedElement ],</span>
-<span class="s">        [ sh:datatype core:DateTime ;</span>
+<span class="s">    sh:property [ sh:datatype core:DateTime ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;withdrawnTime&quot; ;</span>
 <span class="s">            sh:path security:withdrawnTime ],</span>
@@ -1084,14 +1080,18 @@ assessment relationships. It factors out the common properties shared by them.</
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;modifiedTime&quot; ;</span>
 <span class="s">            sh:path security:modifiedTime ],</span>
+<span class="s">        [ sh:datatype core:DateTime ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;publishedTime&quot; ;</span>
+<span class="s">            sh:path security:publishedTime ],</span>
 <span class="s">        [ sh:datatype core:Identity ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;suppliedBy&quot; ;</span>
 <span class="s">            sh:path security:suppliedBy ],</span>
-<span class="s">        [ sh:datatype core:DateTime ;</span>
+<span class="s">        [ sh:datatype core:Element ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;publishedTime&quot; ;</span>
-<span class="s">            sh:path security:publishedTime ] .</span>
+<span class="s">            sh:name &quot;assessedElement&quot; ;</span>
+<span class="s">            sh:path security:assessedElement ] .</span>
 </pre></div>
 
             
@@ -1121,7 +1121,7 @@ assessment relationships. It factors out the common properties shared by them.</
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 18:44:49 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 11:35:16 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1182,7 +1182,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_328").offset().top - 100
+          scrollTop: $("#sd_329").offset().top - 100
       }, 100);
     });
 

@@ -1110,13 +1110,13 @@ to the affects relationship type.</p>
 <span class="s">```&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf security:VexVulnAssessmentRelationship ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype xsd:string ;</span>
+<span class="s">    sh:property [ sh:datatype xsd:dateTime ;</span>
+<span class="s">            sh:name &quot;actionStatementTime&quot; ;</span>
+<span class="s">            sh:path security:actionStatementTime ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;actionStatement&quot; ;</span>
-<span class="s">            sh:path security:actionStatement ],</span>
-<span class="s">        [ sh:datatype xsd:dateTime ;</span>
-<span class="s">            sh:name &quot;actionStatementTime&quot; ;</span>
-<span class="s">            sh:path security:actionStatementTime ] .</span>
+<span class="s">            sh:path security:actionStatement ] .</span>
 </pre></div>
 
             
@@ -1146,7 +1146,7 @@ to the affects relationship type.</p>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 18:44:49 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 11:35:16 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1207,7 +1207,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_366").offset().top - 100
+          scrollTop: $("#sd_318").offset().top - 100
       }, 100);
     });
 
