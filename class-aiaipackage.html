@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -936,7 +936,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
               <li>
                 <a href="class-softwarepackage.html" title="'Package' - A package refers to any unit of content that can be associated with a distribution of software. Typically, a package..">software:Package</a>
                   <ul>
-                    <li><a style="font-weight: bold;" title="'AIPackage' - Metadata information that can be added to a package to describe an AI application or trained AI model.">ai:AIPackage</a>
+                    <li><a style="font-weight: bold;" title="'AIPackage' - Metadata information that can be added to a package to describe an AI application or trained AI model. External property..">ai:AIPackage</a>
                     
                   </li>
                 </ul>
@@ -989,7 +989,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
               <h3 class="panel-title">Description</h3>
             </div>
             <div class="panel-body">
-              <p>Metadata information that can be added to a package to describe an AI application or trained AI model.</p>
+              <p>Metadata information that can be added to a package to describe an AI application or trained AI model.<br>
+External property restriction on /Core/Artifact/suppliedBy: minCount: 1<br>
+External property restriction on /Software/Package/downloadLocation: minCount: 1<br>
+External property restriction on /Software/Package/packageVersion: minCount: 1<br>
+External property restriction on /Software/SoftwareArtifact/purpose: minCount: 1<br>
+External property restriction on /Core/Relationship/relationshipType: minCount: 1<br>
+External property restriction on /Core/Artifact/releaseTime: minCount: 1</p>
             </div>
           </div>
         </div>
@@ -2247,61 +2253,67 @@ but defined external to that document.</span>
 
 <span class="nn">ai</span><span class="p">:</span><span class="nt">AIPackage</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">Class</span><span class="p">,</span>
         <span class="nn">sh</span><span class="p">:</span><span class="nt">NodeShape</span> <span class="p">;</span>
-    <span class="nn">rdfs</span><span class="p">:</span><span class="nt">comment</span> <span class="s">&quot;Metadata information that can be added to a package to describe an AI application or trained AI model.&quot;</span> <span class="p">;</span>
-    <span class="nn">rdfs</span><span class="p">:</span><span class="nt">subClassOf</span> <span class="nn">software</span><span class="p">:</span><span class="nt">Package</span> <span class="p">;</span>
-    <span class="nn">ns0</span><span class="p">:</span><span class="nt">term_status</span> <span class="s">&quot;Stable&quot;</span> <span class="p">;</span>
-    <span class="nn">sh</span><span class="p">:</span><span class="nt">property</span> <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;modelDataPreprocessing&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">modelDataPreprocessing</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">core</span><span class="p">:</span><span class="nt">DictionaryEntry</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;metric&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">metric</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;domain&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">domain</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;limitation&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">limitation</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">PresenceType</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;autonomyType&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">autonomyType</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;modelExplainability&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">modelExplainability</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;standardCompliance&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">standardCompliance</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;informationAboutApplication&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">informationAboutApplication</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">core</span><span class="p">:</span><span class="nt">DictionaryEntry</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;metricDecisionThreshold&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">metricDecisionThreshold</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;energyConsumption&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">energyConsumption</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">SafetyRiskAssessmentType</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;safetyRiskAssessment&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">safetyRiskAssessment</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">core</span><span class="p">:</span><span class="nt">DictionaryEntry</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;hyperparameter&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">hyperparameter</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;informationAboutTraining&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">informationAboutTraining</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;typeOfModel&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">typeOfModel</span> <span class="p">],</span>
-        <span class="p">[</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">datatype</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">PresenceType</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">maxCount</span> <span class="mi">1</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="s">&quot;sensitivePersonalInformation&quot;</span> <span class="p">;</span>
-            <span class="nn">sh</span><span class="p">:</span><span class="nt">path</span> <span class="nn">ai</span><span class="p">:</span><span class="nt">sensitivePersonalInformation</span> <span class="p">]</span> <span class="p">.</span>
+    <span class="nn">rdfs</span><span class="p">:</span><span class="nt">comment</span> <span class="s">&quot;&quot;&quot;Metadata information that can be added to a package to describe an AI application or trained AI model.</span>
+<span class="s">External property restriction on /Core/Artifact/suppliedBy: minCount: 1</span>
+<span class="s">External property restriction on /Software/Package/downloadLocation: minCount: 1</span>
+<span class="s">External property restriction on /Software/Package/packageVersion: minCount: 1</span>
+<span class="s">External property restriction on /Software/SoftwareArtifact/purpose: minCount: 1</span>
+<span class="s">External property restriction on /Core/Relationship/relationshipType: minCount: 1</span>
+<span class="s">External property restriction on /Core/Artifact/releaseTime: minCount: 1&quot;&quot;&quot; ;</span>
+<span class="s">    rdfs:subClassOf software:Package ;</span>
+<span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
+<span class="s">    sh:property [ sh:datatype ai:PresenceType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;sensitivePersonalInformation&quot; ;</span>
+<span class="s">            sh:path ai:sensitivePersonalInformation ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;informationAboutTraining&quot; ;</span>
+<span class="s">            sh:path ai:informationAboutTraining ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;modelExplainability&quot; ;</span>
+<span class="s">            sh:path ai:modelExplainability ],</span>
+<span class="s">        [ sh:datatype ai:SafetyRiskAssessmentType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;safetyRiskAssessment&quot; ;</span>
+<span class="s">            sh:path ai:safetyRiskAssessment ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;standardCompliance&quot; ;</span>
+<span class="s">            sh:path ai:standardCompliance ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;limitation&quot; ;</span>
+<span class="s">            sh:path ai:limitation ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;metric&quot; ;</span>
+<span class="s">            sh:path ai:metric ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;modelDataPreprocessing&quot; ;</span>
+<span class="s">            sh:path ai:modelDataPreprocessing ],</span>
+<span class="s">        [ sh:datatype ai:PresenceType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;autonomyType&quot; ;</span>
+<span class="s">            sh:path ai:autonomyType ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;informationAboutApplication&quot; ;</span>
+<span class="s">            sh:path ai:informationAboutApplication ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;hyperparameter&quot; ;</span>
+<span class="s">            sh:path ai:hyperparameter ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;energyConsumption&quot; ;</span>
+<span class="s">            sh:path ai:energyConsumption ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;domain&quot; ;</span>
+<span class="s">            sh:path ai:domain ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;metricDecisionThreshold&quot; ;</span>
+<span class="s">            sh:path ai:metricDecisionThreshold ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;typeOfModel&quot; ;</span>
+<span class="s">            sh:path ai:typeOfModel ] .</span>
 </pre></div>
 
             
@@ -2331,7 +2343,7 @@ but defined external to that document.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

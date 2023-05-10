@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -938,7 +938,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                   
                     <ul>
                       
-                        <li><a href="shape-aiaipackage.html" title="'AIPackage' - Metadata information that can be added to a package to describe an AI application or trained AI model.">ai:AIPackage</a></li>
+                        <li><a href="shape-aiaipackage.html" title="'AIPackage' - Metadata information that can be added to a package to describe an AI application or trained AI model. External property..">ai:AIPackage</a></li>
                       
                         <li><a href="shape-datasetdataset.html" title="'Dataset' - Metadata information that can be added to a dataset that may be used in a software or to train/test an..">dataset:Dataset</a></li>
                       
@@ -1007,7 +1007,8 @@ Any of the following non-limiting examples may be (but are not required to be) r
  - a collection of one or more sub-packages<br>
  - a Git repository snapshot from a particular point in time</p>
 
-<p>Note that some of these could be represented in SPDX as a file as well.</p>
+<p>Note that some of these could be represented in SPDX as a file as well.<br>
+External property restriction on /Core/Element/name: minCount: 1</p>
             </div>
           </div>
         </div>
@@ -1081,29 +1082,30 @@ Any of the following non-limiting examples may be (but are not required to be) r
 <span class="s"> - a collection of one or more sub-packages</span>
 <span class="s"> - a Git repository snapshot from a particular point in time</span>
 
-<span class="s">Note that some of these could be represented in SPDX as a file as well.&quot;&quot;&quot; ;</span>
+<span class="s">Note that some of these could be represented in SPDX as a file as well.</span>
+<span class="s">External property restriction on /Core/Element/name: minCount: 1&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf software:SoftwareArtifact ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype xsd:anyURI ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;downloadLocation&quot; ;</span>
-<span class="s">            sh:path software:downloadLocation ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;packageVersion&quot; ;</span>
 <span class="s">            sh:path software:packageVersion ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;sourceInfo&quot; ;</span>
+<span class="s">            sh:path software:sourceInfo ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;packageUrl&quot; ;</span>
 <span class="s">            sh:path software:packageUrl ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;homePage&quot; ;</span>
-<span class="s">            sh:path software:homePage ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;downloadLocation&quot; ;</span>
+<span class="s">            sh:path software:downloadLocation ],</span>
+<span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;sourceInfo&quot; ;</span>
-<span class="s">            sh:path software:sourceInfo ] .</span>
+<span class="s">            sh:name &quot;homePage&quot; ;</span>
+<span class="s">            sh:path software:homePage ] .</span>
 </pre></div>
 
             
@@ -1133,7 +1135,7 @@ Any of the following non-limiting examples may be (but are not required to be) r
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1194,7 +1196,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_332").offset().top - 100
+          scrollTop: $("#sd_330").offset().top - 100
       }, 100);
     });
 

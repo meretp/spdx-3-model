@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -935,7 +935,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
             <li><a href="entities-tree-classes.html">sh:Shape</a>
               <ul>
                 <li><a style="font-weight: bold;" title="'SemVer' - The semantic version is a string
-that is following the specification of [Semantic Versioning 2.0.0](https://semver.org/).">core:SemVer</a>
+that is following the specification of [Semantic Versioning 2.0.0](https://semver.org/).
+Format restriction: pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$">core:SemVer</a>
                   
                 </li>
               </ul>
@@ -989,7 +990,8 @@ that is following the specification of [Semantic Versioning 2.0.0](https://semve
             </div>
             <div class="panel-body">
               <p>The semantic version is a string<br>
-that is following the specification of [Semantic Versioning 2.0.0](https://semver.org/).</p>
+that is following the specification of [Semantic Versioning 2.0.0](https://semver.org/).<br>
+Format restriction: pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$</p>
             </div>
           </div>
         </div>
@@ -1030,7 +1032,8 @@ that is following the specification of [Semantic Versioning 2.0.0](https://semve
 <span class="nn">core</span><span class="p">:</span><span class="nt">SemVer</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">Class</span><span class="p">,</span>
         <span class="nn">sh</span><span class="p">:</span><span class="nt">NodeShape</span> <span class="p">;</span>
     <span class="nn">rdfs</span><span class="p">:</span><span class="nt">comment</span> <span class="s">&quot;&quot;&quot;The semantic version is a string</span>
-<span class="s">that is following the specification of [Semantic Versioning 2.0.0](https://semver.org/).&quot;&quot;&quot; ;</span>
+<span class="s">that is following the specification of [Semantic Versioning 2.0.0](https://semver.org/).</span>
+<span class="s">Format restriction: pattern: ^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf xsd:string ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; .</span>
 </pre></div>
@@ -1062,7 +1065,7 @@ that is following the specification of [Semantic Versioning 2.0.0](https://semve
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1123,7 +1126,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_328").offset().top - 100
+          scrollTop: $("#sd_340").offset().top - 100
       }, 100);
     });
 

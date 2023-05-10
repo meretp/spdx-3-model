@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -1631,35 +1631,35 @@ but defined external to that document.</span>
 <span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:name &quot;configSourceEntrypoint&quot; ;</span>
 <span class="s">            sh:path build:configSourceEntrypoint ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;buildId&quot; ;</span>
+<span class="s">            sh:path build:buildId ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;buildType&quot; ;</span>
-<span class="s">            sh:path build:buildType ],</span>
-<span class="s">        [ sh:datatype core:DateTime ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;buildEndTime&quot; ;</span>
-<span class="s">            sh:path build:buildEndTime ],</span>
+<span class="s">            sh:name &quot;configSourceUri&quot; ;</span>
+<span class="s">            sh:path build:configSourceUri ],</span>
+<span class="s">        [ sh:datatype core:Hash ;</span>
+<span class="s">            sh:name &quot;configSourceDigest&quot; ;</span>
+<span class="s">            sh:path build:configSourceDigest ],</span>
 <span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
 <span class="s">            sh:name &quot;parameters&quot; ;</span>
 <span class="s">            sh:path build:parameters ],</span>
 <span class="s">        [ sh:datatype core:DateTime ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;buildEndTime&quot; ;</span>
+<span class="s">            sh:path build:buildEndTime ],</span>
+<span class="s">        [ sh:datatype core:DateTime ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;buildStartTime&quot; ;</span>
 <span class="s">            sh:path build:buildStartTime ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;buildId&quot; ;</span>
-<span class="s">            sh:path build:buildId ],</span>
-<span class="s">        [ sh:datatype core:Hash ;</span>
-<span class="s">            sh:name &quot;configSourceDigest&quot; ;</span>
-<span class="s">            sh:path build:configSourceDigest ],</span>
 <span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
 <span class="s">            sh:name &quot;environment&quot; ;</span>
 <span class="s">            sh:path build:environment ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
-<span class="s">            sh:name &quot;configSourceUri&quot; ;</span>
-<span class="s">            sh:path build:configSourceUri ] .</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;buildType&quot; ;</span>
+<span class="s">            sh:path build:buildType ] .</span>
 </pre></div>
 
             
@@ -1689,7 +1689,7 @@ but defined external to that document.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

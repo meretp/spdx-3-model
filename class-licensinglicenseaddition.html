@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -1363,13 +1363,11 @@ Template format section of the SPDX specification for format information.</span>
 <span class="s">            sh:path licensing:additionComment ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;additionText&quot; ;</span>
-<span class="s">            sh:path licensing:additionText ],</span>
-<span class="s">        [ sh:datatype xsd:boolean ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;isDeprecatedAdditionId&quot; ;</span>
-<span class="s">            sh:path licensing:isDeprecatedAdditionId ],</span>
+<span class="s">            sh:name &quot;obsoletedBy&quot; ;</span>
+<span class="s">            sh:path licensing:obsoletedBy ],</span>
+<span class="s">        [ sh:datatype xsd:anyURI ;</span>
+<span class="s">            sh:name &quot;seeAlso&quot; ;</span>
+<span class="s">            sh:path licensing:seeAlso ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;standardAdditionTemplate&quot; ;</span>
@@ -1379,18 +1377,20 @@ Template format section of the SPDX specification for format information.</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;additionId&quot; ;</span>
 <span class="s">            sh:path licensing:additionId ],</span>
-<span class="s">        [ sh:datatype xsd:anyURI ;</span>
-<span class="s">            sh:name &quot;seeAlso&quot; ;</span>
-<span class="s">            sh:path licensing:seeAlso ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;obsoletedBy&quot; ;</span>
-<span class="s">            sh:path licensing:obsoletedBy ],</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;additionText&quot; ;</span>
+<span class="s">            sh:path licensing:additionText ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;additionName&quot; ;</span>
-<span class="s">            sh:path licensing:additionName ] .</span>
+<span class="s">            sh:path licensing:additionName ],</span>
+<span class="s">        [ sh:datatype xsd:boolean ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;isDeprecatedAdditionId&quot; ;</span>
+<span class="s">            sh:path licensing:isDeprecatedAdditionId ] .</span>
 </pre></div>
 
             
@@ -1420,7 +1420,7 @@ Template format section of the SPDX specification for format information.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

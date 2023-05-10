@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -1780,10 +1780,7 @@ but defined external to that document.</span>
 <span class="s">such as a package, a file, or a snippet.&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf core:Artifact ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype software:SoftwarePurpose ;</span>
-<span class="s">            sh:name &quot;purpose&quot; ;</span>
-<span class="s">            sh:path software:purpose ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;attributionText&quot; ;</span>
 <span class="s">            sh:path software:attributionText ],</span>
@@ -1791,10 +1788,9 @@ but defined external to that document.</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;contentIdentifier&quot; ;</span>
 <span class="s">            sh:path software:contentIdentifier ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;copyrightText&quot; ;</span>
-<span class="s">            sh:path software:copyrightText ],</span>
+<span class="s">        [ sh:datatype software:SoftwarePurpose ;</span>
+<span class="s">            sh:name &quot;purpose&quot; ;</span>
+<span class="s">            sh:path software:purpose ],</span>
 <span class="s">        [ sh:datatype licensing:LicenseField ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;concludedLicense&quot; ;</span>
@@ -1802,7 +1798,11 @@ but defined external to that document.</span>
 <span class="s">        [ sh:datatype licensing:LicenseField ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;declaredLicense&quot; ;</span>
-<span class="s">            sh:path software:declaredLicense ] .</span>
+<span class="s">            sh:path software:declaredLicense ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;copyrightText&quot; ;</span>
+<span class="s">            sh:path software:copyrightText ] .</span>
 </pre></div>
 
             
@@ -1832,7 +1832,7 @@ but defined external to that document.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

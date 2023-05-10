@@ -19,7 +19,7 @@
     <link rel="icon" href="static/custom/favicon.ico">
 
 	
-		<title>Ontospy > SPDX-3.0</title>
+		<title>Ontospy > SPDX-3.0rc1</title>
 	
 
     <!-- Bootstrap core CSS -->
@@ -275,7 +275,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0</code></a></li>
+        <li ><a href="index.html"><code style="font-size: 115%;">SPDX-3.0rc1</code></a></li>
 
         <li  ><a href="entities-az.html">Entities A-Z</a></li>
         
@@ -1080,6 +1080,9 @@ and inter-relatable content objects.</p>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;summary&quot; ;</span>
 <span class="s">            sh:path core:summary ],</span>
+<span class="s">        [ sh:datatype core:ExternalReference ;</span>
+<span class="s">            sh:name &quot;externalReference&quot; ;</span>
+<span class="s">            sh:path core:externalReference ],</span>
 <span class="s">        [ sh:datatype core:ExternalIdentifier ;</span>
 <span class="s">            sh:name &quot;externalIdentifier&quot; ;</span>
 <span class="s">            sh:path core:externalIdentifier ],</span>
@@ -1087,32 +1090,29 @@ and inter-relatable content objects.</p>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;creationInfo&quot; ;</span>
 <span class="s">            sh:path core:creationInfo ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;name&quot; ;</span>
-<span class="s">            sh:path core:name ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;description&quot; ;</span>
-<span class="s">            sh:path core:description ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;spdxId&quot; ;</span>
 <span class="s">            sh:path core:spdxId ],</span>
-<span class="s">        [ sh:datatype core:ExternalReference ;</span>
-<span class="s">            sh:name &quot;externalReference&quot; ;</span>
-<span class="s">            sh:path core:externalReference ],</span>
-<span class="s">        [ sh:datatype core:Extension ;</span>
-<span class="s">            sh:name &quot;extension&quot; ;</span>
-<span class="s">            sh:path core:extension ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;description&quot; ;</span>
+<span class="s">            sh:path core:description ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;comment&quot; ;</span>
+<span class="s">            sh:path core:comment ],</span>
 <span class="s">        [ sh:datatype core:IntegrityMethod ;</span>
 <span class="s">            sh:name &quot;verifiedUsing&quot; ;</span>
 <span class="s">            sh:path core:verifiedUsing ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;comment&quot; ;</span>
-<span class="s">            sh:path core:comment ] .</span>
+<span class="s">            sh:name &quot;name&quot; ;</span>
+<span class="s">            sh:path core:name ],</span>
+<span class="s">        [ sh:datatype core:Extension ;</span>
+<span class="s">            sh:name &quot;extension&quot; ;</span>
+<span class="s">            sh:path core:extension ] .</span>
 </pre></div>
 
             
@@ -1142,7 +1142,7 @@ and inter-relatable content objects.</p>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 09 May 2023 08:52:14 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 10 May 2023 12:25:21 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1203,7 +1203,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_348").offset().top - 100
+          scrollTop: $("#sd_319").offset().top - 100
       }, 100);
     });
 
