@@ -53,23 +53,26 @@ jobs:
       - name: generate docs with Ontospy
         run : |
           cd Ontospy
-          mkdir -p /tmp/generated_docs
-          ontospy gendocs -o /tmp/generated_docs --type 2 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
+          mkdir -p /tmp/auto-generated
+          mkdir -p /tmp/auto-generated/one_pager
+          ontospy gendocs -o /tmp/auto-generated --type 2 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
+          ontospy gendocs -o /tmp/auto-generated/one_pager --type 1 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
 
       - uses: actions/upload-artifact@v3
         with:
-          name: generated_docs
-          path: /tmp/generated_docs
+          name: auto-generated
+          path: /tmp/auto-generated
           
-      - name: commit changes to branch 
+      - name: commit changes to branch
+        if: github.ref_name == 'main'
         run: |
-          if [ ${{ github.ref_name }} == "main" ]
+          if [ -n "$(git status -s -- "auto-generated/" ".*ttl")" ]
           then
             git fetch 
             git checkout gh-pages
             cp /tmp/spec-parser.out/model.ttl .
-            cp -r /tmp/generated_docs/ .
-            git add model.ttl generated_docs/ 
+            cp -r /tmp/auto-generated/ .
+            git add model.ttl auto-generated/ 
             git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -s -m "Automated Upload" --author "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
             git push origin
           fi
