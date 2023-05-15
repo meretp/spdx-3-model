@@ -66,12 +66,12 @@ jobs:
       - name: commit changes to branch
         if: github.ref_name == 'main'
         run: |
-          if [ -n "$(git status -s -- "auto-generated/" ".*ttl")" ]
+          git fetch 
+          git checkout gh-pages
+          cp /tmp/spec-parser.out/model.ttl .
+          cp -r /tmp/auto-generated/ .
+          if [ -n "$(git status -s -- "auto-generated/" "*.ttl")" ]
           then
-            git fetch 
-            git checkout gh-pages
-            cp /tmp/spec-parser.out/model.ttl .
-            cp -r /tmp/auto-generated/ .
             git add model.ttl auto-generated/ 
             git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -s -m "Automated Upload" --author "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
             git push origin
