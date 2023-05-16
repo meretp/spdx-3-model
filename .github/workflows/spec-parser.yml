@@ -53,10 +53,10 @@ jobs:
       - name: generate docs with Ontospy
         run : |
           cd Ontospy
-          mkdir -p /tmp/auto-generate
-          ontospy gendocs -o "tmp/auto-generated" --type 2 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
-          https://github.com/spdx/tools-python/blob/prototype-spdx-3.0/src/spdx_tools/spdx3/model/creation_information.py
-          ontospy gendocs -o "tmp/auto-generated/one_pager" --type 1 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
+          mkdir -p /tmp/auto-generated
+          ontospy gendocs -o /tmp/auto-generated --type 2 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
+          mkdir -p /tmp/auto-generated/one_pager
+          ontospy gendocs -o /tmp/auto-generated/one_pager --type 1 --title SPDX-3.0 /tmp/spec-parser.out/model.ttl
 
       - uses: actions/upload-artifact@v3
         with:
