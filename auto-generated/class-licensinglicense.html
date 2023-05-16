@@ -1414,52 +1414,52 @@ format section of the SPDX specification for format information.</span>
 <span class="s">(ListedLicense) or defined by an SPDX data creator (CustomLicense).&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf licensing:AnyLicenseInfo ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype xsd:boolean ;</span>
+<span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;isDeprecatedLicenseId&quot; ;</span>
-<span class="s">            sh:path licensing:isDeprecatedLicenseId ],</span>
+<span class="s">            sh:name &quot;standardLicenseHeader&quot; ;</span>
+<span class="s">            sh:path licensing:standardLicenseHeader ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;obsoletedBy&quot; ;</span>
 <span class="s">            sh:path licensing:obsoletedBy ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;standardLicenseHeader&quot; ;</span>
-<span class="s">            sh:path licensing:standardLicenseHeader ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;licenseName&quot; ;</span>
 <span class="s">            sh:path licensing:licenseName ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;licenseText&quot; ;</span>
+<span class="s">            sh:path licensing:licenseText ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;standardLicenseTemplate&quot; ;</span>
+<span class="s">            sh:path licensing:standardLicenseTemplate ],</span>
+<span class="s">        [ sh:datatype xsd:boolean ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;isOsiApproved&quot; ;</span>
+<span class="s">            sh:path licensing:isOsiApproved ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;licenseId&quot; ;</span>
+<span class="s">            sh:path licensing:licenseId ],</span>
+<span class="s">        [ sh:datatype xsd:anyURI ;</span>
+<span class="s">            sh:name &quot;seeAlso&quot; ;</span>
+<span class="s">            sh:path licensing:seeAlso ],</span>
 <span class="s">        [ sh:datatype xsd:boolean ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;isFsfLibre&quot; ;</span>
 <span class="s">            sh:path licensing:isFsfLibre ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;licenseId&quot; ;</span>
-<span class="s">            sh:path licensing:licenseId ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;licenseText&quot; ;</span>
-<span class="s">            sh:path licensing:licenseText ],</span>
-<span class="s">        [ sh:datatype xsd:boolean ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;isOsiApproved&quot; ;</span>
-<span class="s">            sh:path licensing:isOsiApproved ],</span>
-<span class="s">        [ sh:datatype xsd:anyURI ;</span>
-<span class="s">            sh:name &quot;seeAlso&quot; ;</span>
-<span class="s">            sh:path licensing:seeAlso ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;licenseComment&quot; ;</span>
 <span class="s">            sh:path licensing:licenseComment ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">        [ sh:datatype xsd:boolean ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;standardLicenseTemplate&quot; ;</span>
-<span class="s">            sh:path licensing:standardLicenseTemplate ] .</span>
+<span class="s">            sh:name &quot;isDeprecatedLicenseId&quot; ;</span>
+<span class="s">            sh:path licensing:isDeprecatedLicenseId ] .</span>
 </pre></div>
 
             
@@ -1489,7 +1489,7 @@ format section of the SPDX specification for format information.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 07:15:04 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:29 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
