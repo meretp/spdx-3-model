@@ -1023,21 +1023,21 @@ that provides additional characteristics of an Element.</p>
     <span class="nn">rdfs</span><span class="p">:</span><span class="nt">comment</span> <span class="s">&quot;&quot;&quot;An External Reference points to a resource outside the scope of the SPDX-3.0 content</span>
 <span class="s">that provides additional characteristics of an Element.&quot;&quot;&quot; ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype core:MediaType ;</span>
+<span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;contentType&quot; ;</span>
-<span class="s">            sh:path core:contentType ],</span>
+<span class="s">            sh:name &quot;comment&quot; ;</span>
+<span class="s">            sh:path core:comment ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:name &quot;locator&quot; ;</span>
 <span class="s">            sh:path core:locator ],</span>
+<span class="s">        [ sh:datatype core:MediaType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;contentType&quot; ;</span>
+<span class="s">            sh:path core:contentType ],</span>
 <span class="s">        [ sh:datatype core:ExternalReferenceType ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;externalReferenceType&quot; ;</span>
-<span class="s">            sh:path core:externalReferenceType ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;comment&quot; ;</span>
-<span class="s">            sh:path core:comment ] .</span>
+<span class="s">            sh:path core:externalReferenceType ] .</span>
 </pre></div>
 
             
@@ -1067,7 +1067,7 @@ that provides additional characteristics of an Element.</p>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1128,7 +1128,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_335").offset().top - 100
+          scrollTop: $("#sd_339").offset().top - 100
       }, 100);
     });
 

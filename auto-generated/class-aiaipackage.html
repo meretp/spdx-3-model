@@ -2222,56 +2222,56 @@ but defined external to that document.</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
 <span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;limitation&quot; ;</span>
-<span class="s">            sh:path ai:limitation ],</span>
+<span class="s">            sh:name &quot;informationAboutTraining&quot; ;</span>
+<span class="s">            sh:path ai:informationAboutTraining ],</span>
+<span class="s">        [ sh:datatype ai:PresenceType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;sensitivePersonalInformation&quot; ;</span>
+<span class="s">            sh:path ai:sensitivePersonalInformation ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;modelExplainability&quot; ;</span>
+<span class="s">            sh:path ai:modelExplainability ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:name &quot;standardCompliance&quot; ;</span>
 <span class="s">            sh:path ai:standardCompliance ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;domain&quot; ;</span>
+<span class="s">            sh:path ai:domain ],</span>
 <span class="s">        [ sh:datatype ai:PresenceType ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;autonomyType&quot; ;</span>
 <span class="s">            sh:path ai:autonomyType ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;domain&quot; ;</span>
-<span class="s">            sh:path ai:domain ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;energyConsumption&quot; ;</span>
-<span class="s">            sh:path ai:energyConsumption ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;modelExplainability&quot; ;</span>
-<span class="s">            sh:path ai:modelExplainability ],</span>
+<span class="s">            sh:name &quot;modelDataPreprocessing&quot; ;</span>
+<span class="s">            sh:path ai:modelDataPreprocessing ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:name &quot;typeOfModel&quot; ;</span>
 <span class="s">            sh:path ai:typeOfModel ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;informationAboutTraining&quot; ;</span>
-<span class="s">            sh:path ai:informationAboutTraining ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;informationAboutApplication&quot; ;</span>
-<span class="s">            sh:path ai:informationAboutApplication ],</span>
-<span class="s">        [ sh:datatype ai:PresenceType ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;sensitivePersonalInformation&quot; ;</span>
-<span class="s">            sh:path ai:sensitivePersonalInformation ],</span>
-<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
-<span class="s">            sh:name &quot;metricDecisionThreshold&quot; ;</span>
-<span class="s">            sh:path ai:metricDecisionThreshold ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;modelDataPreprocessing&quot; ;</span>
-<span class="s">            sh:path ai:modelDataPreprocessing ],</span>
 <span class="s">        [ sh:datatype ai:SafetyRiskAssessmentType ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;safetyRiskAssessment&quot; ;</span>
 <span class="s">            sh:path ai:safetyRiskAssessment ],</span>
 <span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;hyperparameter&quot; ;</span>
+<span class="s">            sh:path ai:hyperparameter ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;energyConsumption&quot; ;</span>
+<span class="s">            sh:path ai:energyConsumption ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;metricDecisionThreshold&quot; ;</span>
+<span class="s">            sh:path ai:metricDecisionThreshold ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
 <span class="s">            sh:name &quot;metric&quot; ;</span>
 <span class="s">            sh:path ai:metric ],</span>
-<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
-<span class="s">            sh:name &quot;hyperparameter&quot; ;</span>
-<span class="s">            sh:path ai:hyperparameter ] .</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;informationAboutApplication&quot; ;</span>
+<span class="s">            sh:path ai:informationAboutApplication ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;limitation&quot; ;</span>
+<span class="s">            sh:path ai:limitation ] .</span>
 </pre></div>
 
             
@@ -2301,7 +2301,7 @@ but defined external to that document.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:29 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

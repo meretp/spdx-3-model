@@ -5,6 +5,7 @@
 @prefix licensing: <https://spdx.org/rdf/Licensing/> .
 @prefix ns0: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix security: <https://spdx.org/rdf/Security/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -1660,16 +1661,16 @@ Catalog (KEV)
             sh:minCount 1 ;
             sh:name "locator" ;
             sh:path security:locator ],
-        [ sh:datatype xsd:boolean ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "exploited" ;
-            sh:path security:exploited ],
         [ sh:datatype security:ExploitCatalogType ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "catalogType" ;
-            sh:path security:catalogType ] .
+            sh:path security:catalogType ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "exploited" ;
+            sh:path security:exploited ] .
 
 security:SsvcVulnAssessmentRelationship a owl:Class,
         sh:NodeShape ;
@@ -2063,25 +2064,25 @@ core:Tool a owl:Class,
 
 core:contentType a owl:DatatypeProperty ;
     rdfs:comment "ContentType specifies the media type of an Element." ;
-    rdfs:domain core:Annotation,
-        core:ExternalReference ;
     rdfs:range core:MediaType ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:Annotation,
+                    core:ExternalReference ] ) .
 
 core:name a owl:DatatypeProperty ;
     rdfs:comment """This field identifies the name of an Element as designated by the creator. 
 The name of an Element is an important convention and easier to refer to than the URI.""" ;
-    rdfs:domain core:Element,
-        core:SpdxDocument ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:Element,
+                    core:SpdxDocument ] ) .
 
 core:verifiedUsing a owl:ObjectProperty ;
     rdfs:comment "VerifiedUsing provides an IntegrityMethod with which the integrity of an Element can be asserted." ;
-    rdfs:domain core:Element,
-        core:ExternalMap ;
     rdfs:range core:IntegrityMethod ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:Element,
+                    core:ExternalMap ] ) .
 
 licensing:ListedLicense a owl:Class,
         sh:NodeShape ;
@@ -2091,12 +2092,12 @@ at https://spdx.org/licenses.""" ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "listVersionAdded" ;
-            sh:path licensing:listVersionAdded ],
+            sh:name "deprecatedVersion" ;
+            sh:path licensing:deprecatedVersion ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "deprecatedVersion" ;
-            sh:path licensing:deprecatedVersion ] .
+            sh:name "listVersionAdded" ;
+            sh:path licensing:listVersionAdded ] .
 
 licensing:ListedLicenseException a owl:Class,
         sh:NodeShape ;
@@ -2139,28 +2140,28 @@ licensing:deprecatedVersion a owl:DatatypeProperty ;
     rdfs:comment """A deprecatedVersion for a ListedLicense or ListedLicenseException on the SPDX
 License List specifies which version release of the License List was the first
 one in which it was marked as deprecated.""" ;
-    rdfs:domain licensing:ListedLicense,
-        licensing:ListedLicenseException ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain licensing:ListedLicense,
+                    licensing:ListedLicenseException ] ) .
 
 licensing:listVersionAdded a owl:DatatypeProperty ;
     rdfs:comment """A listVersionAdded for a ListedLicense or ListedLicenseException on the SPDX
 License List specifies which version release of the License List was the first
 one in which it was included.""" ;
-    rdfs:domain licensing:ListedLicense,
-        licensing:ListedLicenseException ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain licensing:ListedLicense,
+                    licensing:ListedLicenseException ] ) .
 
 licensing:member a owl:ObjectProperty ;
     rdfs:comment """A member is a license expression participating in a conjuctive (of type
 ConjunctiveLicenseSet) or a disjunctive (of type DisjunctiveLicenseSet)
 license set.""" ;
-    rdfs:domain licensing:ConjunctiveLicenseSet,
-        licensing:DisjunctiveLicenseSet ;
     rdfs:range licensing:AnyLicenseInfo ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain licensing:ConjunctiveLicenseSet,
+                    licensing:DisjunctiveLicenseSet ] ) .
 
 licensing:obsoletedBy a owl:DatatypeProperty ;
     rdfs:comment """An obsoletedBy value for a deprecated License or LicenseAddition specifies
@@ -2171,10 +2172,10 @@ licenseId.
 The License's or LicenseAddition's comment value may include more information
 about the reason why the licenseId specified in the obsoletedBy value is
 preferred.""" ;
-    rdfs:domain licensing:License,
-        licensing:LicenseAddition ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain licensing:License,
+                    licensing:LicenseAddition ] ) .
 
 licensing:seeAlso a owl:DatatypeProperty ;
     rdfs:comment """A seeAlso defines a cross-reference with a URL where the License or
@@ -2193,18 +2194,18 @@ LicenseAddition which is no longer active.
 Where applicable, the seeAlso URL should include the license text in its
 native language. seeAlso URLs to English or other translations may be included
 where multiple, equivalent official translations exist.""" ;
-    rdfs:domain licensing:License,
-        licensing:LicenseAddition ;
     rdfs:range xsd:anyURI ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain licensing:License,
+                    licensing:LicenseAddition ] ) .
 
 licensing:subjectLicense a owl:ObjectProperty ;
     rdfs:comment """A subjectLicense is a License which is subject to either an 'or later' effect
 (OrLaterOperator) or a 'with additional text' effect (WithAdditionOperator).""" ;
-    rdfs:domain licensing:OrLaterOperator,
-        licensing:WithAdditionOperator ;
     rdfs:range licensing:License ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain licensing:OrLaterOperator,
+                    licensing:WithAdditionOperator ] ) .
 
 security:EpssVulnAssessmentRelationship a owl:Class,
         sh:NodeShape ;
@@ -2277,55 +2278,55 @@ for VEX.
 ```""" ;
     rdfs:subClassOf security:VexVulnAssessmentRelationship ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype security:VexJustificationType ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "justificationType" ;
-            sh:path security:justificationType ],
+            sh:name "impactStatement" ;
+            sh:path security:impactStatement ],
         [ sh:datatype xsd:dateTime ;
             sh:maxCount 1 ;
             sh:name "impactStatementTime" ;
             sh:path security:impactStatementTime ],
-        [ sh:datatype xsd:string ;
+        [ sh:datatype security:VexJustificationType ;
             sh:maxCount 1 ;
-            sh:name "impactStatement" ;
-            sh:path security:impactStatement ] .
+            sh:name "justificationType" ;
+            sh:path security:justificationType ] .
 
 security:modifiedTime a owl:DatatypeProperty ;
     rdfs:comment "Specifies a time when a vulnerability assessment was last modified." ;
-    rdfs:domain security:VulnAssessmentRelationship,
-        security:Vulnerability ;
     rdfs:range core:DateTime ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain security:VulnAssessmentRelationship,
+                    security:Vulnerability ] ) .
 
 security:publishedTime a owl:DatatypeProperty ;
     rdfs:comment "Specifies the time when a vulnerability was first published." ;
-    rdfs:domain security:VulnAssessmentRelationship,
-        security:Vulnerability ;
     rdfs:range core:DateTime ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain security:VulnAssessmentRelationship,
+                    security:Vulnerability ] ) .
 
 security:score a owl:DatatypeProperty ;
     rdfs:comment """The score provides information on the severity of a vulnerability per the
 Common Vulnerability Scoring System as defined on [https://www.first.org/cvss](https://www.first.org/cvss/).""" ;
-    rdfs:domain security:CvssV2VulnAssessmentRelationship,
-        security:CvssV3VulnAssessmentRelationship ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain security:CvssV2VulnAssessmentRelationship,
+                    security:CvssV3VulnAssessmentRelationship ] ) .
 
 security:vector a owl:DatatypeProperty ;
     rdfs:comment """Sepcifies the vector string of a vulnerability, a string combining metrics
 from an assessment of its severity.""" ;
-    rdfs:domain security:CvssV2VulnAssessmentRelationship,
-        security:CvssV3VulnAssessmentRelationship ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain security:CvssV2VulnAssessmentRelationship,
+                    security:CvssV3VulnAssessmentRelationship ] ) .
 
 security:withdrawnTime a owl:DatatypeProperty ;
     rdfs:comment "Specified the time and date when a vulnerability was withdrawn." ;
-    rdfs:domain security:VulnAssessmentRelationship,
-        security:Vulnerability ;
     rdfs:range core:DateTime ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain security:VulnAssessmentRelationship,
+                    security:Vulnerability ] ) .
 
 software:Snippet a owl:Class,
         sh:NodeShape ;
@@ -2362,16 +2363,16 @@ core:AnonymousPayload a owl:Class,
     rdfs:comment "TODO" ;
     rdfs:subClassOf core:Payload ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype core:CreationInfo ;
-            sh:maxCount 1 ;
-            sh:name "creationInfo" ;
-            sh:path core:creationInfo ],
+    sh:property [ sh:datatype core:NamespaceMap ;
+            sh:name "namespaces" ;
+            sh:path core:namespaces ],
         [ sh:datatype core:ExternalMap ;
             sh:name "imports" ;
             sh:path core:imports ],
-        [ sh:datatype core:NamespaceMap ;
-            sh:name "namespaces" ;
-            sh:path core:namespaces ] .
+        [ sh:datatype core:CreationInfo ;
+            sh:maxCount 1 ;
+            sh:name "creationInfo" ;
+            sh:path core:creationInfo ] .
 
 core:Bundle a owl:Class,
         sh:NodeShape ;
@@ -2385,28 +2386,28 @@ core:Bundle a owl:Class,
 
 core:creationInfo a owl:DatatypeProperty ;
     rdfs:comment "CreationInfo provides information about the creation of the Element." ;
-    rdfs:domain core:AnonymousPayload,
-        core:Element,
-        core:Payload ;
     rdfs:range core:CreationInfo ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:AnonymousPayload,
+                    core:Element,
+                    core:Payload ] ) .
 
 core:imports a owl:DatatypeProperty ;
     rdfs:comment """Imports provides an ExternalMap of Element identifiers that are used within a document
 but defined external to that document.""" ;
-    rdfs:domain core:AnonymousPayload,
-        core:ElementCollection,
-        core:Payload ;
     rdfs:range core:ExternalMap ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:AnonymousPayload,
+                    core:ElementCollection,
+                    core:Payload ] ) .
 
 core:namespaces a owl:DatatypeProperty ;
     rdfs:comment "This field provides a NamespaceMap applicable to an ElementCollection." ;
-    rdfs:domain core:AnonymousPayload,
-        core:ElementCollection,
-        core:Payload ;
     rdfs:range core:NamespaceMap ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:AnonymousPayload,
+                    core:ElementCollection,
+                    core:Payload ] ) .
 
 security:CvssV2VulnAssessmentRelationship a owl:Class,
         sh:NodeShape ;
@@ -2463,12 +2464,12 @@ The value of severity must be one of 'low', 'medium' or 'high'
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "severity" ;
-            sh:path security:severity ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
             sh:name "vector" ;
             sh:path security:vector ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "severity" ;
+            sh:path security:severity ],
         [ sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -2531,19 +2532,19 @@ Absence of the property shall be interpreted as 'none'.
 ```""" ;
     rdfs:subClassOf security:VulnAssessmentRelationship ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
-            sh:name "severity" ;
-            sh:path security:severity ],
+            sh:minCount 1 ;
+            sh:name "score" ;
+            sh:path security:score ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "vector" ;
             sh:path security:vector ],
-        [ sh:datatype xsd:decimal ;
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "score" ;
-            sh:path security:score ] .
+            sh:name "severity" ;
+            sh:path security:severity ] .
 
 security:ExploitCatalogType a owl:Class ;
     rdfs:comment "ExploitCatalogType specifies the type of exploit catalog that a vulnerability is listed in." ;
@@ -2635,44 +2636,44 @@ security:Vulnerability a owl:Class,
             sh:path security:withdrawnTime ],
         [ sh:datatype core:DateTime ;
             sh:maxCount 1 ;
-            sh:name "modifiedTime" ;
-            sh:path security:modifiedTime ],
+            sh:name "publishedTime" ;
+            sh:path security:publishedTime ],
         [ sh:datatype core:DateTime ;
             sh:maxCount 1 ;
-            sh:name "publishedTime" ;
-            sh:path security:publishedTime ] .
+            sh:name "modifiedTime" ;
+            sh:path security:modifiedTime ] .
 
 security:severity a owl:DatatypeProperty ;
     rdfs:comment """The severity field provides a human readable string, a label that can be used
 as an English adjective that qualifies its numerical score.""" ;
-    rdfs:domain security:CvssV2VulnAssessmentRelationship,
-        security:CvssV3VulnAssessmentRelationship,
-        security:EpssVulnAssessmentRelationship ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain security:CvssV2VulnAssessmentRelationship,
+                    security:CvssV3VulnAssessmentRelationship,
+                    security:EpssVulnAssessmentRelationship ] ) .
 
 core:Annotation a owl:Class,
         sh:NodeShape ;
     rdfs:comment "An Annotation is an assertion made in relation to one or more elements." ;
     rdfs:subClassOf core:Element ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "statement" ;
-            sh:path core:statement ],
+    sh:property [ sh:datatype core:MediaType ;
+            sh:name "contentType" ;
+            sh:path core:contentType ],
         [ sh:datatype core:AnnotationType ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "annotationType" ;
             sh:path core:annotationType ],
-        [ sh:datatype core:MediaType ;
-            sh:name "contentType" ;
-            sh:path core:contentType ],
         [ sh:datatype core:Element ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "subject" ;
-            sh:path core:subject ] .
+            sh:path core:subject ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "statement" ;
+            sh:path core:statement ] .
 
 core:AnnotationType a owl:Class ;
     rdfs:comment "AnnotationType specifies the type of an annotation." ;
@@ -2732,12 +2733,12 @@ the document's date must be considered as authoritative.""" ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "statusNotes" ;
-            sh:path security:statusNotes ],
+            sh:name "vexVersion" ;
+            sh:path security:vexVersion ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "vexVersion" ;
-            sh:path security:vexVersion ] .
+            sh:name "statusNotes" ;
+            sh:path security:statusNotes ] .
 
 core:ElementCollection a owl:Class,
         sh:NodeShape ;
@@ -2746,18 +2747,18 @@ core:ElementCollection a owl:Class,
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype core:Element ;
             sh:minCount 1 ;
-            sh:name "element" ;
-            sh:path core:element ],
-        [ sh:datatype core:Element ;
-            sh:minCount 1 ;
             sh:name "rootElement" ;
             sh:path core:rootElement ],
+        [ sh:datatype core:NamespaceMap ;
+            sh:name "namespaces" ;
+            sh:path core:namespaces ],
         [ sh:datatype core:ExternalMap ;
             sh:name "imports" ;
             sh:path core:imports ],
-        [ sh:datatype core:NamespaceMap ;
-            sh:name "namespaces" ;
-            sh:path core:namespaces ] .
+        [ sh:datatype core:Element ;
+            sh:minCount 1 ;
+            sh:name "element" ;
+            sh:path core:element ] .
 
 core:IntegrityMethod a owl:Class,
         sh:NodeShape ;
@@ -2783,16 +2784,16 @@ core:Payload a owl:Class,
         sh:NodeShape ;
     rdfs:comment "TODO" ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype core:NamespaceMap ;
-            sh:name "namespaces" ;
-            sh:path core:namespaces ],
-        [ sh:datatype core:ExternalMap ;
+    sh:property [ sh:datatype core:ExternalMap ;
             sh:name "imports" ;
             sh:path core:imports ],
         [ sh:datatype core:CreationInfo ;
             sh:maxCount 1 ;
             sh:name "creationInfo" ;
-            sh:path core:creationInfo ] .
+            sh:path core:creationInfo ],
+        [ sh:datatype core:NamespaceMap ;
+            sh:name "namespaces" ;
+            sh:path core:namespaces ] .
 
 core:RelationshipCompleteness a owl:Class ;
     rdfs:comment """RelationshipCompleteness indicates whether a relationship is complete or 
@@ -2802,13 +2803,13 @@ known to be incomplete or if there is made no assertion either way.""" ;
 core:comment a owl:DatatypeProperty ;
     rdfs:comment """A comment is an optional field for creators of the Element to provide comments
 to the readers/reviewers of the document.""" ;
-    rdfs:domain core:CreationInfo,
-        core:Element,
-        core:ExternalIdentifier,
-        core:ExternalReference,
-        core:IntegrityMethod ;
     rdfs:range xsd:string ;
-    ns0:term_status "Stable" .
+    ns0:term_status "Stable" ;
+    sh:or ( [ rdfs:domain core:CreationInfo,
+                    core:Element,
+                    core:ExternalIdentifier,
+                    core:ExternalReference,
+                    core:IntegrityMethod ] ) .
 
 ai:SafetyRiskAssessmentType a owl:Class ;
     rdfs:comment """Lists the different safety risk type values that can be used to describe the safety risk of AI software
@@ -2820,21 +2821,21 @@ core:ExternalReference a owl:Class,
     rdfs:comment """An External Reference points to a resource outside the scope of the SPDX-3.0 content
 that provides additional characteristics of an Element.""" ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype core:MediaType ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "contentType" ;
-            sh:path core:contentType ],
+            sh:name "comment" ;
+            sh:path core:comment ],
         [ sh:datatype xsd:anyURI ;
             sh:name "locator" ;
             sh:path core:locator ],
+        [ sh:datatype core:MediaType ;
+            sh:maxCount 1 ;
+            sh:name "contentType" ;
+            sh:path core:contentType ],
         [ sh:datatype core:ExternalReferenceType ;
             sh:maxCount 1 ;
             sh:name "externalReferenceType" ;
-            sh:path core:externalReferenceType ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "comment" ;
-            sh:path core:comment ] .
+            sh:path core:externalReferenceType ] .
 
 core:Identity a owl:Class,
         sh:NodeShape ;
@@ -2895,27 +2896,27 @@ core:Artifact a owl:Class,
 such as an electronic file, a software package, a device or an element of data.""" ;
     rdfs:subClassOf core:Element ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype core:DateTime ;
-            sh:maxCount 1 ;
-            sh:name "validUntilTime" ;
-            sh:path core:validUntilTime ],
-        [ sh:datatype core:DateTime ;
-            sh:maxCount 1 ;
-            sh:name "builtTime" ;
-            sh:path core:builtTime ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:name "standard" ;
             sh:path core:standard ],
+        [ sh:datatype core:Identity ;
+            sh:name "originatedBy" ;
+            sh:path core:originatedBy ],
         [ sh:datatype core:DateTime ;
             sh:maxCount 1 ;
             sh:name "releaseTime" ;
             sh:path core:releaseTime ],
+        [ sh:datatype core:DateTime ;
+            sh:maxCount 1 ;
+            sh:name "builtTime" ;
+            sh:path core:builtTime ],
+        [ sh:datatype core:DateTime ;
+            sh:maxCount 1 ;
+            sh:name "validUntilTime" ;
+            sh:path core:validUntilTime ],
         [ sh:datatype core:Identity ;
             sh:name "suppliedBy" ;
-            sh:path core:suppliedBy ],
-        [ sh:datatype core:Identity ;
-            sh:name "originatedBy" ;
-            sh:path core:originatedBy ] .
+            sh:path core:suppliedBy ] .
 
 core:ExternalIdentifier a owl:Class,
         sh:NodeShape ;
@@ -2925,11 +2926,10 @@ that uniquely identifies an Element.""" ;
     sh:property [ sh:datatype xsd:anyURI ;
             sh:name "identifierLocator" ;
             sh:path core:identifierLocator ],
-        [ sh:datatype core:ExternalIdentifierType ;
+        [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "externalIdentifierType" ;
-            sh:path core:externalIdentifierType ],
+            sh:name "issuingAuthority" ;
+            sh:path core:issuingAuthority ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "comment" ;
@@ -2939,10 +2939,11 @@ that uniquely identifies an Element.""" ;
             sh:minCount 1 ;
             sh:name "identifier" ;
             sh:path core:identifier ],
-        [ sh:datatype xsd:anyURI ;
+        [ sh:datatype core:ExternalIdentifierType ;
             sh:maxCount 1 ;
-            sh:name "issuingAuthority" ;
-            sh:path core:issuingAuthority ] .
+            sh:minCount 1 ;
+            sh:name "externalIdentifierType" ;
+            sh:path core:externalIdentifierType ] .
 
 core:ExternalMap a owl:Class,
         sh:NodeShape ;
@@ -2951,18 +2952,18 @@ but defined external to that Document.
 The external map provides details about the externally-defined Element
 such as its provenance, where to retrieve it, and how to verify its integrity.""" ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "externalId" ;
-            sh:path core:externalId ],
-        [ sh:datatype core:IntegrityMethod ;
+    sh:property [ sh:datatype core:IntegrityMethod ;
             sh:name "verifiedUsing" ;
             sh:path core:verifiedUsing ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:name "locationHint" ;
-            sh:path core:locationHint ] .
+            sh:path core:locationHint ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "externalId" ;
+            sh:path core:externalId ] .
 
 dataset:DatasetAvailabilityType a owl:Class ;
     rdfs:comment "Describes the possible types of availability of a dataset, indicating whether the dataset can be directly downloaded, can be assembled using a script for scraping the data, is only available after a clickthrough or a registration form." ;
@@ -3004,16 +3005,12 @@ External property restriction on /Core/Element/name: minCount: 1""" ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
-            sh:name "packageUrl" ;
-            sh:path software:packageUrl ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "packageVersion" ;
-            sh:path software:packageVersion ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
             sh:name "downloadLocation" ;
             sh:path software:downloadLocation ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:name "packageUrl" ;
+            sh:path software:packageUrl ],
         [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:name "homePage" ;
@@ -3021,7 +3018,11 @@ External property restriction on /Core/Element/name: minCount: 1""" ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "sourceInfo" ;
-            sh:path software:sourceInfo ] .
+            sh:path software:sourceInfo ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "packageVersion" ;
+            sh:path software:packageVersion ] .
 
 core:LifecycleScopeType a owl:Class ;
     rdfs:comment "TODO" ;
@@ -3034,10 +3035,8 @@ that one Element is related to one or more other Elements in some way.""" ;
     rdfs:subClassOf core:Element ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype core:Element ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "from" ;
-            sh:path core:from ],
+            sh:name "to" ;
+            sh:path core:to ],
         [ sh:datatype core:RelationshipCompleteness ;
             sh:maxCount 1 ;
             sh:name "completeness" ;
@@ -3046,18 +3045,20 @@ that one Element is related to one or more other Elements in some way.""" ;
             sh:maxCount 1 ;
             sh:name "endTime" ;
             sh:path core:endTime ],
-        [ sh:datatype core:RelationshipType ;
+        [ sh:datatype core:Element ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "relationshipType" ;
-            sh:path core:relationshipType ],
+            sh:name "from" ;
+            sh:path core:from ],
         [ sh:datatype core:DateTime ;
             sh:maxCount 1 ;
             sh:name "startTime" ;
             sh:path core:startTime ],
-        [ sh:datatype core:Element ;
-            sh:name "to" ;
-            sh:path core:to ] .
+        [ sh:datatype core:RelationshipType ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "relationshipType" ;
+            sh:path core:relationshipType ] .
 
 licensing:AnyLicenseInfo a owl:Class,
         sh:NodeShape ;
@@ -3088,38 +3089,38 @@ ExternalIdentifier of type "urlScheme" may be used to identify build logs. In th
 Note that buildStart and buildEnd are optional, and may be omitted to simplify creating reproducible builds.""" ;
     rdfs:subClassOf core:Element ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype core:DateTime ;
+            sh:maxCount 1 ;
+            sh:name "buildStartTime" ;
+            sh:path build:buildStartTime ],
+        [ sh:datatype core:DictionaryEntry ;
+            sh:name "environment" ;
+            sh:path build:environment ],
+        [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "buildType" ;
             sh:path build:buildType ],
-        [ sh:datatype core:Hash ;
-            sh:name "configSourceDigest" ;
-            sh:path build:configSourceDigest ],
         [ sh:datatype xsd:anyURI ;
             sh:name "configSourceUri" ;
             sh:path build:configSourceUri ],
+        [ sh:datatype core:Hash ;
+            sh:name "configSourceDigest" ;
+            sh:path build:configSourceDigest ],
+        [ sh:datatype core:DictionaryEntry ;
+            sh:name "parameters" ;
+            sh:path build:parameters ],
+        [ sh:datatype xsd:string ;
+            sh:name "configSourceEntrypoint" ;
+            sh:path build:configSourceEntrypoint ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "buildId" ;
             sh:path build:buildId ],
-        [ sh:datatype xsd:string ;
-            sh:name "configSourceEntrypoint" ;
-            sh:path build:configSourceEntrypoint ],
-        [ sh:datatype core:DictionaryEntry ;
-            sh:name "environment" ;
-            sh:path build:environment ],
-        [ sh:datatype core:DateTime ;
-            sh:maxCount 1 ;
-            sh:name "buildStartTime" ;
-            sh:path build:buildStartTime ],
         [ sh:datatype core:DateTime ;
             sh:maxCount 1 ;
             sh:name "buildEndTime" ;
-            sh:path build:buildEndTime ],
-        [ sh:datatype core:DictionaryEntry ;
-            sh:name "parameters" ;
-            sh:path build:parameters ] .
+            sh:path build:buildEndTime ] .
 
 software:SoftwareArtifact a owl:Class,
         sh:NodeShape ;
@@ -3127,11 +3128,7 @@ software:SoftwareArtifact a owl:Class,
 such as a package, a file, or a snippet.""" ;
     rdfs:subClassOf core:Artifact ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "copyrightText" ;
-            sh:path software:copyrightText ],
-        [ sh:datatype licensing:LicenseField ;
+    sh:property [ sh:datatype licensing:LicenseField ;
             sh:maxCount 1 ;
             sh:name "concludedLicense" ;
             sh:path software:concludedLicense ],
@@ -3139,17 +3136,21 @@ such as a package, a file, or a snippet.""" ;
             sh:maxCount 1 ;
             sh:name "attributionText" ;
             sh:path software:attributionText ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:name "contentIdentifier" ;
-            sh:path software:contentIdentifier ],
         [ sh:datatype software:SoftwarePurpose ;
             sh:name "purpose" ;
             sh:path software:purpose ],
         [ sh:datatype licensing:LicenseField ;
             sh:maxCount 1 ;
             sh:name "declaredLicense" ;
-            sh:path software:declaredLicense ] .
+            sh:path software:declaredLicense ],
+        [ sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:name "contentIdentifier" ;
+            sh:path software:contentIdentifier ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "copyrightText" ;
+            sh:path software:copyrightText ] .
 
 security:VulnAssessmentRelationship a owl:Class,
         sh:NodeShape ;
@@ -3162,6 +3163,10 @@ External property restriction on /Core/Relationship/to: minCount: 1""" ;
             sh:maxCount 1 ;
             sh:name "withdrawnTime" ;
             sh:path security:withdrawnTime ],
+        [ sh:datatype core:DateTime ;
+            sh:maxCount 1 ;
+            sh:name "publishedTime" ;
+            sh:path security:publishedTime ],
         [ sh:datatype core:Element ;
             sh:maxCount 1 ;
             sh:name "assessedElement" ;
@@ -3173,11 +3178,7 @@ External property restriction on /Core/Relationship/to: minCount: 1""" ;
         [ sh:datatype core:Identity ;
             sh:maxCount 1 ;
             sh:name "suppliedBy" ;
-            sh:path security:suppliedBy ],
-        [ sh:datatype core:DateTime ;
-            sh:maxCount 1 ;
-            sh:name "publishedTime" ;
-            sh:path security:publishedTime ] .
+            sh:path security:suppliedBy ] .
 
 core:CreationInfo a owl:Class,
         sh:NodeShape ;
@@ -3185,22 +3186,10 @@ core:CreationInfo a owl:Class,
 
 The dateTime created is often the date of last change (e.g., a git commit date), not the date when the SPDX data was created, as doing so supports reproducible builds.""" ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype core:Tool ;
-            sh:name "createdUsing" ;
-            sh:path core:createdUsing ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "comment" ;
             sh:path core:comment ],
-        [ sh:datatype core:DateTime ;
-            sh:name "created" ;
-            sh:path core:created ],
-        [ sh:datatype xsd:string ;
-            sh:name "dataLicense" ;
-            sh:path core:dataLicense ],
-        [ sh:datatype core:SemVer ;
-            sh:name "specVersion" ;
-            sh:path core:specVersion ],
         [ sh:datatype core:Entity ;
             sh:minCount 1 ;
             sh:name "createdBy" ;
@@ -3208,7 +3197,19 @@ The dateTime created is often the date of last change (e.g., a git commit date),
         [ sh:datatype core:ProfileIdentifierType ;
             sh:minCount 1 ;
             sh:name "profile" ;
-            sh:path core:profile ] .
+            sh:path core:profile ],
+        [ sh:datatype core:SemVer ;
+            sh:name "specVersion" ;
+            sh:path core:specVersion ],
+        [ sh:datatype core:DateTime ;
+            sh:name "created" ;
+            sh:path core:created ],
+        [ sh:datatype core:Tool ;
+            sh:name "createdUsing" ;
+            sh:path core:createdUsing ],
+        [ sh:datatype xsd:string ;
+            sh:name "dataLicense" ;
+            sh:path core:dataLicense ] .
 
 core:ExternalIdentifierType a owl:Class ;
     rdfs:comment "ExteralIdentifierType specifies the type of an external identifier." ;
@@ -3230,9 +3231,8 @@ or otherwise) which is defined by an SPDX data creator (CustomLicenseAddition)."
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "additionName" ;
-            sh:path licensing:additionName ],
+            sh:name "obsoletedBy" ;
+            sh:path licensing:obsoletedBy ],
         [ sh:datatype xsd:boolean ;
             sh:maxCount 1 ;
             sh:name "isDeprecatedAdditionId" ;
@@ -3240,28 +3240,29 @@ or otherwise) which is defined by an SPDX data creator (CustomLicenseAddition)."
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:name "additionId" ;
-            sh:path licensing:additionId ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "obsoletedBy" ;
-            sh:path licensing:obsoletedBy ],
+            sh:name "additionName" ;
+            sh:path licensing:additionName ],
+        [ sh:datatype xsd:anyURI ;
+            sh:name "seeAlso" ;
+            sh:path licensing:seeAlso ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "additionComment" ;
             sh:path licensing:additionComment ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "standardAdditionTemplate" ;
-            sh:path licensing:standardAdditionTemplate ],
+            sh:minCount 1 ;
+            sh:name "additionId" ;
+            sh:path licensing:additionId ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:name "additionText" ;
             sh:path licensing:additionText ],
-        [ sh:datatype xsd:anyURI ;
-            sh:name "seeAlso" ;
-            sh:path licensing:seeAlso ] .
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "standardAdditionTemplate" ;
+            sh:path licensing:standardAdditionTemplate ] .
 
 dataset:Dataset a owl:Class,
         sh:NodeShape ;
@@ -3275,53 +3276,53 @@ External property restriction on /Core/Artifact/builtTime: minCount: 1""" ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "datasetType" ;
-            sh:path dataset:datasetType ],
+            sh:name "intendedUse" ;
+            sh:path dataset:intendedUse ],
+        [ sh:datatype core:DictionaryEntry ;
+            sh:name "sensor" ;
+            sh:path dataset:sensor ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "datasetNoise" ;
+            sh:path dataset:datasetNoise ],
+        [ sh:datatype xsd:string ;
+            sh:name "anonymizationMethodUsed" ;
+            sh:path dataset:anonymizationMethodUsed ],
+        [ sh:datatype xsd:string ;
+            sh:name "knownBias" ;
+            sh:path dataset:knownBias ],
+        [ sh:datatype dataset:PresenceType ;
+            sh:maxCount 1 ;
+            sh:name "sensitivePersonalInformation" ;
+            sh:path dataset:sensitivePersonalInformation ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "dataCollectionProcess" ;
             sh:path dataset:dataCollectionProcess ],
         [ sh:datatype xsd:string ;
-            sh:name "anonymizationMethodUsed" ;
-            sh:path dataset:anonymizationMethodUsed ],
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "datasetType" ;
+            sh:path dataset:datasetType ],
         [ sh:datatype dataset:ConfidentialityLevelType ;
             sh:maxCount 1 ;
             sh:name "confidentialityLevel" ;
             sh:path dataset:confidentialityLevel ],
+        [ sh:datatype xsd:string ;
+            sh:name "dataPreprocessing" ;
+            sh:path dataset:dataPreprocessing ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:maxCount 1 ;
             sh:name "datasetSize" ;
             sh:path dataset:datasetSize ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "datasetNoise" ;
-            sh:path dataset:datasetNoise ],
-        [ sh:datatype core:DictionaryEntry ;
-            sh:name "sensor" ;
-            sh:path dataset:sensor ],
-        [ sh:datatype xsd:string ;
-            sh:name "knownBias" ;
-            sh:path dataset:knownBias ],
+            sh:name "datasetUpdateMechanism" ;
+            sh:path dataset:datasetUpdateMechanism ],
         [ sh:datatype dataset:DatasetAvailabilityType ;
             sh:maxCount 1 ;
             sh:name "datasetAvailability" ;
-            sh:path dataset:datasetAvailability ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "intendedUse" ;
-            sh:path dataset:intendedUse ],
-        [ sh:datatype xsd:string ;
-            sh:name "dataPreprocessing" ;
-            sh:path dataset:dataPreprocessing ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "datasetUpdateMechanism" ;
-            sh:path dataset:datasetUpdateMechanism ],
-        [ sh:datatype dataset:PresenceType ;
-            sh:maxCount 1 ;
-            sh:name "sensitivePersonalInformation" ;
-            sh:path dataset:sensitivePersonalInformation ] .
+            sh:path dataset:datasetAvailability ] .
 
 core:DictionaryEntry a owl:Class,
         sh:NodeShape ;
@@ -3349,56 +3350,56 @@ External property restriction on /Core/Artifact/releaseTime: minCount: 1""" ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "limitation" ;
-            sh:path ai:limitation ],
+            sh:name "informationAboutTraining" ;
+            sh:path ai:informationAboutTraining ],
+        [ sh:datatype ai:PresenceType ;
+            sh:maxCount 1 ;
+            sh:name "sensitivePersonalInformation" ;
+            sh:path ai:sensitivePersonalInformation ],
+        [ sh:datatype xsd:string ;
+            sh:name "modelExplainability" ;
+            sh:path ai:modelExplainability ],
         [ sh:datatype xsd:string ;
             sh:name "standardCompliance" ;
             sh:path ai:standardCompliance ],
+        [ sh:datatype xsd:string ;
+            sh:name "domain" ;
+            sh:path ai:domain ],
         [ sh:datatype ai:PresenceType ;
             sh:maxCount 1 ;
             sh:name "autonomyType" ;
             sh:path ai:autonomyType ],
         [ sh:datatype xsd:string ;
-            sh:name "domain" ;
-            sh:path ai:domain ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "energyConsumption" ;
-            sh:path ai:energyConsumption ],
-        [ sh:datatype xsd:string ;
-            sh:name "modelExplainability" ;
-            sh:path ai:modelExplainability ],
+            sh:name "modelDataPreprocessing" ;
+            sh:path ai:modelDataPreprocessing ],
         [ sh:datatype xsd:string ;
             sh:name "typeOfModel" ;
             sh:path ai:typeOfModel ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "informationAboutTraining" ;
-            sh:path ai:informationAboutTraining ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "informationAboutApplication" ;
-            sh:path ai:informationAboutApplication ],
-        [ sh:datatype ai:PresenceType ;
-            sh:maxCount 1 ;
-            sh:name "sensitivePersonalInformation" ;
-            sh:path ai:sensitivePersonalInformation ],
-        [ sh:datatype core:DictionaryEntry ;
-            sh:name "metricDecisionThreshold" ;
-            sh:path ai:metricDecisionThreshold ],
-        [ sh:datatype xsd:string ;
-            sh:name "modelDataPreprocessing" ;
-            sh:path ai:modelDataPreprocessing ],
         [ sh:datatype ai:SafetyRiskAssessmentType ;
             sh:maxCount 1 ;
             sh:name "safetyRiskAssessment" ;
             sh:path ai:safetyRiskAssessment ],
         [ sh:datatype core:DictionaryEntry ;
+            sh:name "hyperparameter" ;
+            sh:path ai:hyperparameter ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "energyConsumption" ;
+            sh:path ai:energyConsumption ],
+        [ sh:datatype core:DictionaryEntry ;
+            sh:name "metricDecisionThreshold" ;
+            sh:path ai:metricDecisionThreshold ],
+        [ sh:datatype core:DictionaryEntry ;
             sh:name "metric" ;
             sh:path ai:metric ],
-        [ sh:datatype core:DictionaryEntry ;
-            sh:name "hyperparameter" ;
-            sh:path ai:hyperparameter ] .
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "informationAboutApplication" ;
+            sh:path ai:informationAboutApplication ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "limitation" ;
+            sh:path ai:limitation ] .
 
 licensing:License a owl:Class,
         sh:NodeShape ;
@@ -3407,6 +3408,11 @@ licensing:License a owl:Class,
     rdfs:subClassOf licensing:AnyLicenseInfo ;
     ns0:term_status "Stable" ;
     sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "licenseText" ;
+            sh:path licensing:licenseText ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "standardLicenseHeader" ;
             sh:path licensing:standardLicenseHeader ],
@@ -3417,13 +3423,21 @@ licensing:License a owl:Class,
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
+            sh:name "licenseId" ;
+            sh:path licensing:licenseId ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:name "isDeprecatedLicenseId" ;
+            sh:path licensing:isDeprecatedLicenseId ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:name "licenseName" ;
             sh:path licensing:licenseName ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "licenseText" ;
-            sh:path licensing:licenseText ],
+            sh:name "licenseComment" ;
+            sh:path licensing:licenseComment ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "standardLicenseTemplate" ;
@@ -3432,26 +3446,13 @@ licensing:License a owl:Class,
             sh:maxCount 1 ;
             sh:name "isOsiApproved" ;
             sh:path licensing:isOsiApproved ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "licenseId" ;
-            sh:path licensing:licenseId ],
         [ sh:datatype xsd:anyURI ;
             sh:name "seeAlso" ;
             sh:path licensing:seeAlso ],
         [ sh:datatype xsd:boolean ;
             sh:maxCount 1 ;
             sh:name "isFsfLibre" ;
-            sh:path licensing:isFsfLibre ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:name "licenseComment" ;
-            sh:path licensing:licenseComment ],
-        [ sh:datatype xsd:boolean ;
-            sh:maxCount 1 ;
-            sh:name "isDeprecatedLicenseId" ;
-            sh:path licensing:isDeprecatedLicenseId ] .
+            sh:path licensing:isFsfLibre ] .
 
 core:ExternalReferenceType a owl:Class ;
     rdfs:comment "ExteralReferenceType specifies the type of an external reference." ;
@@ -3489,25 +3490,17 @@ unifying, and interoperable foundation for all explicit
 and inter-relatable content objects.""" ;
     rdfs:subClassOf core:Payload ;
     ns0:term_status "Stable" ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype core:Extension ;
+            sh:name "extension" ;
+            sh:path core:extension ],
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:name "comment" ;
-            sh:path core:comment ],
+            sh:name "description" ;
+            sh:path core:description ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:name "name" ;
             sh:path core:name ],
-        [ sh:datatype core:Extension ;
-            sh:name "extension" ;
-            sh:path core:extension ],
-        [ sh:datatype core:ExternalIdentifier ;
-            sh:name "externalIdentifier" ;
-            sh:path core:externalIdentifier ],
-        [ sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:name "spdxId" ;
-            sh:path core:spdxId ],
         [ sh:datatype core:ExternalReference ;
             sh:name "externalReference" ;
             sh:path core:externalReference ],
@@ -3518,14 +3511,22 @@ and inter-relatable content objects.""" ;
             sh:maxCount 1 ;
             sh:name "summary" ;
             sh:path core:summary ],
-        [ sh:datatype xsd:string ;
+        [ sh:datatype core:ExternalIdentifier ;
+            sh:name "externalIdentifier" ;
+            sh:path core:externalIdentifier ],
+        [ sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
-            sh:name "description" ;
-            sh:path core:description ],
+            sh:minCount 1 ;
+            sh:name "spdxId" ;
+            sh:path core:spdxId ],
         [ sh:datatype core:CreationInfo ;
             sh:maxCount 1 ;
             sh:name "creationInfo" ;
-            sh:path core:creationInfo ] .
+            sh:path core:creationInfo ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:name "comment" ;
+            sh:path core:comment ] .
 
 core:RelationshipType a owl:Class ;
     rdfs:comment """Provides information about the relationship between two Elements.

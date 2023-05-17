@@ -1018,12 +1018,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                      
                          
                          
-                              <a href="class-securityvulnerability.html" title="https://spdx.org/rdf/Security/Vulnerability">security:Vulnerability</a>
+                              <a href="class-securityvulnassessmentrelationship.html" title="https://spdx.org/rdf/Security/VulnAssessmentRelationship">security:VulnAssessmentRelationship</a>
                            
                            , 
                          
                          
-                              <a href="class-securityvulnassessmentrelationship.html" title="https://spdx.org/rdf/Security/VulnAssessmentRelationship">security:VulnAssessmentRelationship</a>
+                              <a href="class-securityvulnerability.html" title="https://spdx.org/rdf/Security/Vulnerability">security:Vulnerability</a>
                            
                            
                          
@@ -1063,15 +1063,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                     <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">core:</span><span class="w"> </span><span class="nv">&lt;https://spdx.org/rdf/Core/&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">ns0:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdf:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">security:</span><span class="w"> </span><span class="nv">&lt;https://spdx.org/rdf/Security/&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">sh:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/ns/shacl#&gt;</span><span class="w"> </span><span class="p">.</span>
 
 <span class="nn">security</span><span class="p">:</span><span class="nt">withdrawnTime</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">DatatypeProperty</span> <span class="p">;</span>
     <span class="nn">rdfs</span><span class="p">:</span><span class="nt">comment</span> <span class="s">&quot;Specified the time and date when a vulnerability was withdrawn.&quot;</span> <span class="p">;</span>
-    <span class="nn">rdfs</span><span class="p">:</span><span class="nt">domain</span> <span class="nn">security</span><span class="p">:</span><span class="nt">VulnAssessmentRelationship</span><span class="p">,</span>
-        <span class="nn">security</span><span class="p">:</span><span class="nt">Vulnerability</span> <span class="p">;</span>
     <span class="nn">rdfs</span><span class="p">:</span><span class="nt">range</span> <span class="nn">core</span><span class="p">:</span><span class="nt">DateTime</span> <span class="p">;</span>
-    <span class="nn">ns0</span><span class="p">:</span><span class="nt">term_status</span> <span class="s">&quot;Stable&quot;</span> <span class="p">.</span>
+    <span class="nn">ns0</span><span class="p">:</span><span class="nt">term_status</span> <span class="s">&quot;Stable&quot;</span> <span class="p">;</span>
+    <span class="nn">sh</span><span class="p">:</span><span class="nt">or</span> <span class="p">(</span> <span class="p">[</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">domain</span> <span class="nn">security</span><span class="p">:</span><span class="nt">VulnAssessmentRelationship</span><span class="p">,</span>
+                    <span class="nn">security</span><span class="p">:</span><span class="nt">Vulnerability</span> <span class="p">]</span> <span class="p">)</span> <span class="p">.</span>
 </pre></div>
 
 
@@ -1110,7 +1112,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

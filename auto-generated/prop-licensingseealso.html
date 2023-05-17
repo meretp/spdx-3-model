@@ -1078,7 +1078,9 @@ where multiple, equivalent official translations exist.</p>
                     <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">licensing:</span><span class="w"> </span><span class="nv">&lt;https://spdx.org/rdf/Licensing/&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">ns0:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdf:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">sh:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/ns/shacl#&gt;</span><span class="w"> </span><span class="p">.</span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span>
 
 <span class="nn">licensing</span><span class="p">:</span><span class="nt">seeAlso</span> <span class="kt">a</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">DatatypeProperty</span> <span class="p">;</span>
@@ -1098,10 +1100,10 @@ where multiple, equivalent official translations exist.</p>
 <span class="s">Where applicable, the seeAlso URL should include the license text in its</span>
 <span class="s">native language. seeAlso URLs to English or other translations may be included</span>
 <span class="s">where multiple, equivalent official translations exist.&quot;&quot;&quot; ;</span>
-<span class="s">    rdfs:domain licensing:License,</span>
-<span class="s">        licensing:LicenseAddition ;</span>
 <span class="s">    rdfs:range xsd:anyURI ;</span>
-<span class="s">    ns0:term_status &quot;Stable&quot; .</span>
+<span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
+<span class="s">    sh:or ( [ rdfs:domain licensing:License,</span>
+<span class="s">                    licensing:LicenseAddition ] ) .</span>
 </pre></div>
 
 
@@ -1140,7 +1142,7 @@ where multiple, equivalent official translations exist.</p>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:29 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

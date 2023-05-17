@@ -2171,53 +2171,53 @@ but defined external to that document.</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
 <span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;datasetType&quot; ;</span>
-<span class="s">            sh:path dataset:datasetType ],</span>
+<span class="s">            sh:name &quot;intendedUse&quot; ;</span>
+<span class="s">            sh:path dataset:intendedUse ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;sensor&quot; ;</span>
+<span class="s">            sh:path dataset:sensor ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;datasetNoise&quot; ;</span>
+<span class="s">            sh:path dataset:datasetNoise ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;anonymizationMethodUsed&quot; ;</span>
+<span class="s">            sh:path dataset:anonymizationMethodUsed ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;knownBias&quot; ;</span>
+<span class="s">            sh:path dataset:knownBias ],</span>
+<span class="s">        [ sh:datatype dataset:PresenceType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;sensitivePersonalInformation&quot; ;</span>
+<span class="s">            sh:path dataset:sensitivePersonalInformation ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;dataCollectionProcess&quot; ;</span>
 <span class="s">            sh:path dataset:dataCollectionProcess ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;anonymizationMethodUsed&quot; ;</span>
-<span class="s">            sh:path dataset:anonymizationMethodUsed ],</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;datasetType&quot; ;</span>
+<span class="s">            sh:path dataset:datasetType ],</span>
 <span class="s">        [ sh:datatype dataset:ConfidentialityLevelType ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;confidentialityLevel&quot; ;</span>
 <span class="s">            sh:path dataset:confidentialityLevel ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;dataPreprocessing&quot; ;</span>
+<span class="s">            sh:path dataset:dataPreprocessing ],</span>
 <span class="s">        [ sh:datatype xsd:nonNegativeInteger ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;datasetSize&quot; ;</span>
 <span class="s">            sh:path dataset:datasetSize ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;datasetNoise&quot; ;</span>
-<span class="s">            sh:path dataset:datasetNoise ],</span>
-<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
-<span class="s">            sh:name &quot;sensor&quot; ;</span>
-<span class="s">            sh:path dataset:sensor ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;knownBias&quot; ;</span>
-<span class="s">            sh:path dataset:knownBias ],</span>
+<span class="s">            sh:name &quot;datasetUpdateMechanism&quot; ;</span>
+<span class="s">            sh:path dataset:datasetUpdateMechanism ],</span>
 <span class="s">        [ sh:datatype dataset:DatasetAvailabilityType ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;datasetAvailability&quot; ;</span>
-<span class="s">            sh:path dataset:datasetAvailability ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;intendedUse&quot; ;</span>
-<span class="s">            sh:path dataset:intendedUse ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;dataPreprocessing&quot; ;</span>
-<span class="s">            sh:path dataset:dataPreprocessing ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;datasetUpdateMechanism&quot; ;</span>
-<span class="s">            sh:path dataset:datasetUpdateMechanism ],</span>
-<span class="s">        [ sh:datatype dataset:PresenceType ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;sensitivePersonalInformation&quot; ;</span>
-<span class="s">            sh:path dataset:sensitivePersonalInformation ] .</span>
+<span class="s">            sh:path dataset:datasetAvailability ] .</span>
 </pre></div>
 
             
@@ -2247,7 +2247,7 @@ but defined external to that document.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:29 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

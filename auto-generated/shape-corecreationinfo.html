@@ -1025,22 +1025,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 <span class="s">The dateTime created is often the date of last change (e.g., a git commit date), not the date when the SPDX data was created, as doing so supports reproducible builds.&quot;&quot;&quot; ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype core:Tool ;</span>
-<span class="s">            sh:name &quot;createdUsing&quot; ;</span>
-<span class="s">            sh:path core:createdUsing ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">    sh:property [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;comment&quot; ;</span>
 <span class="s">            sh:path core:comment ],</span>
-<span class="s">        [ sh:datatype core:DateTime ;</span>
-<span class="s">            sh:name &quot;created&quot; ;</span>
-<span class="s">            sh:path core:created ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;dataLicense&quot; ;</span>
-<span class="s">            sh:path core:dataLicense ],</span>
-<span class="s">        [ sh:datatype core:SemVer ;</span>
-<span class="s">            sh:name &quot;specVersion&quot; ;</span>
-<span class="s">            sh:path core:specVersion ],</span>
 <span class="s">        [ sh:datatype core:Entity ;</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;createdBy&quot; ;</span>
@@ -1048,7 +1036,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="s">        [ sh:datatype core:ProfileIdentifierType ;</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;profile&quot; ;</span>
-<span class="s">            sh:path core:profile ] .</span>
+<span class="s">            sh:path core:profile ],</span>
+<span class="s">        [ sh:datatype core:SemVer ;</span>
+<span class="s">            sh:name &quot;specVersion&quot; ;</span>
+<span class="s">            sh:path core:specVersion ],</span>
+<span class="s">        [ sh:datatype core:DateTime ;</span>
+<span class="s">            sh:name &quot;created&quot; ;</span>
+<span class="s">            sh:path core:created ],</span>
+<span class="s">        [ sh:datatype core:Tool ;</span>
+<span class="s">            sh:name &quot;createdUsing&quot; ;</span>
+<span class="s">            sh:path core:createdUsing ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;dataLicense&quot; ;</span>
+<span class="s">            sh:path core:dataLicense ] .</span>
 </pre></div>
 
             
@@ -1078,7 +1078,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1139,7 +1139,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_333").offset().top - 100
+          scrollTop: $("#sd_325").offset().top - 100
       }, 100);
     });
 

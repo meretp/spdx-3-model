@@ -1053,10 +1053,8 @@ that one Element is related to one or more other Elements in some way.</p>
 <span class="s">    rdfs:subClassOf core:Element ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
 <span class="s">    sh:property [ sh:datatype core:Element ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;from&quot; ;</span>
-<span class="s">            sh:path core:from ],</span>
+<span class="s">            sh:name &quot;to&quot; ;</span>
+<span class="s">            sh:path core:to ],</span>
 <span class="s">        [ sh:datatype core:RelationshipCompleteness ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;completeness&quot; ;</span>
@@ -1065,18 +1063,20 @@ that one Element is related to one or more other Elements in some way.</p>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;endTime&quot; ;</span>
 <span class="s">            sh:path core:endTime ],</span>
-<span class="s">        [ sh:datatype core:RelationshipType ;</span>
+<span class="s">        [ sh:datatype core:Element ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;relationshipType&quot; ;</span>
-<span class="s">            sh:path core:relationshipType ],</span>
+<span class="s">            sh:name &quot;from&quot; ;</span>
+<span class="s">            sh:path core:from ],</span>
 <span class="s">        [ sh:datatype core:DateTime ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;startTime&quot; ;</span>
 <span class="s">            sh:path core:startTime ],</span>
-<span class="s">        [ sh:datatype core:Element ;</span>
-<span class="s">            sh:name &quot;to&quot; ;</span>
-<span class="s">            sh:path core:to ] .</span>
+<span class="s">        [ sh:datatype core:RelationshipType ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;relationshipType&quot; ;</span>
+<span class="s">            sh:path core:relationshipType ] .</span>
 </pre></div>
 
             
@@ -1106,7 +1106,7 @@ that one Element is related to one or more other Elements in some way.</p>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1167,7 +1167,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_367").offset().top - 100
+          scrollTop: $("#sd_314").offset().top - 100
       }, 100);
     });
 

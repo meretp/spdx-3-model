@@ -1168,11 +1168,10 @@ to the readers/reviewers of the document.</span>
 <span class="s">    sh:property [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:name &quot;identifierLocator&quot; ;</span>
 <span class="s">            sh:path core:identifierLocator ],</span>
-<span class="s">        [ sh:datatype core:ExternalIdentifierType ;</span>
+<span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:minCount 1 ;</span>
-<span class="s">            sh:name &quot;externalIdentifierType&quot; ;</span>
-<span class="s">            sh:path core:externalIdentifierType ],</span>
+<span class="s">            sh:name &quot;issuingAuthority&quot; ;</span>
+<span class="s">            sh:path core:issuingAuthority ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;comment&quot; ;</span>
@@ -1182,10 +1181,11 @@ to the readers/reviewers of the document.</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;identifier&quot; ;</span>
 <span class="s">            sh:path core:identifier ],</span>
-<span class="s">        [ sh:datatype xsd:anyURI ;</span>
+<span class="s">        [ sh:datatype core:ExternalIdentifierType ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;issuingAuthority&quot; ;</span>
-<span class="s">            sh:path core:issuingAuthority ] .</span>
+<span class="s">            sh:minCount 1 ;</span>
+<span class="s">            sh:name &quot;externalIdentifierType&quot; ;</span>
+<span class="s">            sh:path core:externalIdentifierType ] .</span>
 </pre></div>
 
             
@@ -1215,7 +1215,7 @@ to the readers/reviewers of the document.</span>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:29 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>

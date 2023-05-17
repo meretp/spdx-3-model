@@ -1061,38 +1061,38 @@ those defined in [SLSA provenance](https://slsa.dev/provenance/v0.2).</p>
 <span class="s">Note that buildStart and buildEnd are optional, and may be omitted to simplify creating reproducible builds.&quot;&quot;&quot; ;</span>
 <span class="s">    rdfs:subClassOf core:Element ;</span>
 <span class="s">    ns0:term_status &quot;Stable&quot; ;</span>
-<span class="s">    sh:property [ sh:datatype xsd:anyURI ;</span>
+<span class="s">    sh:property [ sh:datatype core:DateTime ;</span>
+<span class="s">            sh:maxCount 1 ;</span>
+<span class="s">            sh:name &quot;buildStartTime&quot; ;</span>
+<span class="s">            sh:path build:buildStartTime ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;environment&quot; ;</span>
+<span class="s">            sh:path build:environment ],</span>
+<span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:minCount 1 ;</span>
 <span class="s">            sh:name &quot;buildType&quot; ;</span>
 <span class="s">            sh:path build:buildType ],</span>
-<span class="s">        [ sh:datatype core:Hash ;</span>
-<span class="s">            sh:name &quot;configSourceDigest&quot; ;</span>
-<span class="s">            sh:path build:configSourceDigest ],</span>
 <span class="s">        [ sh:datatype xsd:anyURI ;</span>
 <span class="s">            sh:name &quot;configSourceUri&quot; ;</span>
 <span class="s">            sh:path build:configSourceUri ],</span>
+<span class="s">        [ sh:datatype core:Hash ;</span>
+<span class="s">            sh:name &quot;configSourceDigest&quot; ;</span>
+<span class="s">            sh:path build:configSourceDigest ],</span>
+<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
+<span class="s">            sh:name &quot;parameters&quot; ;</span>
+<span class="s">            sh:path build:parameters ],</span>
+<span class="s">        [ sh:datatype xsd:string ;</span>
+<span class="s">            sh:name &quot;configSourceEntrypoint&quot; ;</span>
+<span class="s">            sh:path build:configSourceEntrypoint ],</span>
 <span class="s">        [ sh:datatype xsd:string ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;buildId&quot; ;</span>
 <span class="s">            sh:path build:buildId ],</span>
-<span class="s">        [ sh:datatype xsd:string ;</span>
-<span class="s">            sh:name &quot;configSourceEntrypoint&quot; ;</span>
-<span class="s">            sh:path build:configSourceEntrypoint ],</span>
-<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
-<span class="s">            sh:name &quot;environment&quot; ;</span>
-<span class="s">            sh:path build:environment ],</span>
-<span class="s">        [ sh:datatype core:DateTime ;</span>
-<span class="s">            sh:maxCount 1 ;</span>
-<span class="s">            sh:name &quot;buildStartTime&quot; ;</span>
-<span class="s">            sh:path build:buildStartTime ],</span>
 <span class="s">        [ sh:datatype core:DateTime ;</span>
 <span class="s">            sh:maxCount 1 ;</span>
 <span class="s">            sh:name &quot;buildEndTime&quot; ;</span>
-<span class="s">            sh:path build:buildEndTime ],</span>
-<span class="s">        [ sh:datatype core:DictionaryEntry ;</span>
-<span class="s">            sh:name &quot;parameters&quot; ;</span>
-<span class="s">            sh:path build:parameters ] .</span>
+<span class="s">            sh:path build:buildEndTime ] .</span>
 </pre></div>
 
             
@@ -1122,7 +1122,7 @@ those defined in [SLSA provenance](https://slsa.dev/provenance/v0.2).</p>
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on Tue, 16 May 2023 09:03:30 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
+      <p class="text-muted">Documentation automatically generated on Wed, 17 May 2023 06:40:31 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v2.1.1)</p>
 
     
     </div>
@@ -1183,7 +1183,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_327").offset().top - 100
+          scrollTop: $("#sd_323").offset().top - 100
       }, 100);
     });
 
